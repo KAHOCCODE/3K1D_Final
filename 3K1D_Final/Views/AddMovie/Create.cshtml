@@ -1,0 +1,51 @@
+﻿@model _3K1D_Final.Models.AddMovie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>View</h1>
+
+<h4>AddMovie</h4>
+<hr />
+<head>
+    <title>Thêm Phim Mới</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <h1>Thêm Phim Mới</h1>
+    <form>
+        <label for="ten-phim">Tên phim:</label>
+        <input type="text" id="ten-phim" name="ten-phim"><br><br>
+
+        <label>Thể loại:</label><br>
+        <input type="checkbox" name="the-loai" value="Hành động"> Hành động
+        <input type="checkbox" name="the-loai" value="Viễn tưởng"> Viễn tưởng
+        <input type="checkbox" name="the-loai" value="Hài hước"> Hài hước
+        <br><br>
+
+        <label for="mo-ta">Mô tả:</label><br>
+        <textarea id="mo-ta" name="mo-ta" rows="4" cols="50"></textarea><br><br>
+
+        <label for="hinh">Hình ảnh:</label>
+        <input type="file" id="hinh" name="hinh"><br><br>
+
+        <label for="tac-gia">Tác giả:</label>
+        <input type="text" id="tac-gia" name="tac-gia"><br><br>
+
+        <label for="thoi-luong">Thời lượng (phút):</label>
+        <input type="number" id="thoi-luong" name="thoi-luong"><br><br>
+
+        <label for="ngay-vao">Ngày vào rạp:</label>
+        <input type="date" id="ngay-vao" name="ngay-vao"><br><br>
+
+        <input type="submit" value="Thêm phim">
+    </form>
+</body>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
