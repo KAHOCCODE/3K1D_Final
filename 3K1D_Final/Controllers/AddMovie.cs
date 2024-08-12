@@ -8,5 +8,9 @@ namespace _3K1D_Final.Controllers
         {
             return View();
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
