@@ -1,7 +1,13 @@
+using _3K1D_Final.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<QlrapPhimContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("QLRapPhim")));
 
 var app = builder.Build();
 
@@ -26,7 +32,9 @@ app.UseEndpoints(endpoints =>
       name: "areas",
       pattern: "{area:exists}/{controller=HomeAdmin}/{action=Index}/{id?}"
     );
+
 });
+
 
 
 app.MapControllerRoute(
