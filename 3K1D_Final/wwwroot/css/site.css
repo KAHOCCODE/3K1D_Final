@@ -1,22 +1,87 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: #202020;
+    margin-right: 0; /* Lo?i b? kho?ng cách bên ph?i */
+}
+
+.navbar-nav {
+    margin-right: 200px; /* Ð?y t?t c? các m?c sang bên ph?i */
+}
+
+.nav-item {
+    margin-left: 25px; /* Ði?u ch?nh kho?ng cách gi?a các m?c */
+}
+
+.navbar-brand {
+    margin-left: 100px; /* Ð?y logo sang bên trái */
+    font-size: 2rem; /* Thay ð?i kích thý?c font theo ? mu?n */
+}
+
+
+.jumbotron {
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+}
+
+    .jumbotron h1 {
+        font-weight: bold;
+    }
+
+.form-control {
+    border-radius: 50px;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #1e90ff;
+    border-color: #1e90ff;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+}
+
+footer {
+    background-color: #202020;
+}
+
+.card {
+    background-color: #1f1f1f;
+    border: none;
+    border-radius: 10px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #b0b0b0;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+.form-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Ði?u ch?nh kho?ng cách trên */
+}
+
+.form-control {
+    width: 60%; /* Ði?u ch?nh ð? r?ng c?a thanh t?m ki?m */
+}
+
+.btn-primary {
+    margin-top: 10px; /* Ði?u ch?nh kho?ng cách trên c?a nút Search */
+    margin-left: 5px; /* Ði?u ch?nh kho?ng cách bên trái c?a nút Search */
 }
