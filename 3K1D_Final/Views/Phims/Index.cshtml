@@ -1,0 +1,103 @@
+﻿@model IEnumerable<_3K1D_Final.Models.Phim>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Danh sách phim</h1>
+
+<p>
+    <a asp-action="Create">Thêm phim</a>
+</p>
+<table class="table" style="color: white;">
+    <thead>
+        <tr>
+            <th>
+                <a>Tên phim</a>
+            </th>
+            <th>
+                <a>Mô tả</a>
+            </th>
+            <th style="display: none;" id="description-header">Mô tả chi tiết</th>
+            <th>
+                <a>Thời lượng</a>
+            </th>
+            <th>
+                <a>Ngày khỏi chiếu</a>
+            </th>
+            <th>
+                <a>Ngày kết thúc</a>
+            </th>
+            <th>
+                <a>Quốc gia</a>
+            </th>
+            <th>
+                <a>Đạo diễn</a>
+            </th>
+            <th>
+                <a>Áp phích </a>
+            </th>
+            <th>
+                <a>Định dạng phim</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.TenPhim)
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-link" onclick="toggleDescription(this)">Xem chi tiết</button>
+                    </td>
+                    <td id="description-@item.IdPhim" style="display: none;">
+                    @Html.DisplayFor(modelItem => item.MoTa)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.ThoiLuong)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.NgayKhoiChieu)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.NgayKetThuc)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.QuocGiaSanXuat)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.DaoDien)
+                    </td>
+                    <td>
+                        </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.DinhDangPhim)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdPhim">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdPhim">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdPhim">Delete</a>
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function toggleDescription(button) {
+        var descriptionId = button.parentElement.nextElementSibling.id;
+        var description = document.getElementById(descriptionId);
+        var descriptionHeader = document.getElementById('description-header');
+
+        if (description.style.display === 'none') {
+            description.style.display = 'block';
+            descriptionHeader.style.display = 'table-cell';
+        } else {
+            description.style.display = 'none';
+            descriptionHeader.style.display = 'none';
+        }
+    }
+</script>
