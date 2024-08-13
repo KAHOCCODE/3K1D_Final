@@ -1,0 +1,78 @@
+﻿@model _3K1D_Final.Models.Phim
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Phim</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TenPhim)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenPhim)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ThoiLuong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ThoiLuong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayKhoiChieu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NgayKhoiChieu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayKetThuc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NgayKetThuc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QuocGiaSanXuat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QuocGiaSanXuat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DaoDien)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DaoDien)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NamSx)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NamSx)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApPhich)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApPhich)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DinhDangPhim)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DinhDangPhim)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdPhim">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
