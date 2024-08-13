@@ -10,22 +10,22 @@ using _3K1D_Final.Models;
 namespace _3K1D_Final.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class EmployeesController : Controller
+    public class NhanViensController : Controller
     {
         private readonly QlrapPhimContext _context;
 
-        public EmployeesController(QlrapPhimContext context)
+        public NhanViensController(QlrapPhimContext context)
         {
             _context = context;
         }
-
-        // GET: Admin/Employees
+        [Route("Admin/Employee/EmployeeLists")]
+        // GET: Admin/NhanViens
         public async Task<IActionResult> Index()
         {
             return View(await _context.NhanViens.ToListAsync());
         }
-
-        // GET: Admin/Employees/Details/5
+        [Route("Admin/Employee/EmployeeDetails/{id}")]
+        // GET: Admin/NhanViens/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -42,14 +42,14 @@ namespace _3K1D_Final.Areas.Admin.Controllers
 
             return View(nhanVien);
         }
-
-        // GET: Admin/Employees/Create
+        [Route("Admin/Employee/Create")]
+        // GET: Admin/NhanViens/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Employees/Create
+        // POST: Admin/NhanViens/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,8 +64,8 @@ namespace _3K1D_Final.Areas.Admin.Controllers
             }
             return View(nhanVien);
         }
-
-        // GET: Admin/Employees/Edit/5
+        [Route("Admin/Employee/Edit/{id}")]
+        // GET: Admin/NhanViens/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -81,9 +81,10 @@ namespace _3K1D_Final.Areas.Admin.Controllers
             return View(nhanVien);
         }
 
-        // POST: Admin/Employees/Edit/5
+        // POST: Admin/NhanViens/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("Admin/Employee/Edit/{id}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("IdNv,HoTen,NgaySinh,DiaChi,Sdt,Cccd,HinhAnh")] NhanVien nhanVien)
@@ -116,7 +117,8 @@ namespace _3K1D_Final.Areas.Admin.Controllers
             return View(nhanVien);
         }
 
-        // GET: Admin/Employees/Delete/5
+        // GET: Admin/NhanViens/Delete/5
+        [Route("Admin/Employee/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -133,8 +135,9 @@ namespace _3K1D_Final.Areas.Admin.Controllers
 
             return View(nhanVien);
         }
+        [Route("Admin/Employee/Delete/{id}")]
 
-        // POST: Admin/Employees/Delete/5
+        // POST: Admin/NhanViens/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
