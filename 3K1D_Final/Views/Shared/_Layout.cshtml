@@ -10,40 +10,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">3K1D</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Movies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Foods & Drinks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Promotions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">EN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        @Html.Partial("_Navbar")
     </header>
-
-
-
-
-    <main role="main" class="container mt-4">
+    @* <main role="main" class="container mt-4">
         <div class="jumbotron bg-dark text-white rounded-3 p-5">
             <h1 class="display-4">Welcome.</h1>
             <p class="lead">Millions of movies, TV shows and people to discover. Explore now.</p>
@@ -54,7 +23,7 @@
         </div>
         @RenderSection("Scripts", required: false)
         @RenderBody()
-    </main>
+    </main> *@
 
     <footer class="text-muted py-4 bg-dark text-center text-white"style="margin-bottom: 0px">
         <div class="container" >
