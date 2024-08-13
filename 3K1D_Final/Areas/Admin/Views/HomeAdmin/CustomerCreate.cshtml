@@ -1,0 +1,77 @@
+﻿@model _3K1D_Final.Models.KhachHang
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Customer Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">@ViewData["Title"]</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Create New Customer</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CustomerCreate">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="IdKhachHang" class="form-label"></label>
+                            <input asp-for="IdKhachHang" class="form-control" />
+                            <span asp-validation-for="IdKhachHang" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="HoTen" class="form-label"></label>
+                            <input asp-for="HoTen" class="form-control" />
+                            <span asp-validation-for="HoTen" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="NgaySinh" class="form-label"></label>
+                            <input asp-for="NgaySinh" class="form-control" type="date" />
+                            <span asp-validation-for="NgaySinh" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="DiaChi" class="form-label"></label>
+                            <input asp-for="DiaChi" class="form-control" />
+                            <span asp-validation-for="DiaChi" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Sdt" class="form-label"></label>
+                            <input asp-for="Sdt" class="form-control" />
+                            <span asp-validation-for="Sdt" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Cccd" class="form-label"></label>
+                            <input asp-for="Cccd" class="form-control" />
+                            <span asp-validation-for="Cccd" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="DiemTichLuy" class="form-label"></label>
+                            <input asp-for="DiemTichLuy" class="form-control" />
+                            <span asp-validation-for="DiemTichLuy" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <input type="submit" value="Create" class="btn btn-outline-success btn-lg" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-3 text-center">
+                <a asp-area="Admin" asp-controller="Customer" asp-action="CustomerLists" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left-circle"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
