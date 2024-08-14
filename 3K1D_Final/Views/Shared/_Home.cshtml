@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<Phim>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -62,13 +63,17 @@
     <div class="second">
         <div class="latest">
             <h1>Popular Movies</h1>
+            <a asp-action="Detail" asp-route-id="P05">
             <div class="box">
                 <div class="card">
                     <div class="details">
                         <div class="left">
+                            <!--name-->
                             <p class="name">Gajaman</p>
                             <div class="date_quality">
+                                <!--Dinh dạng phim-->
                                 <p class="quality">HD</p>
+                                <<!--năm sane=r xuất-->
                                 <p class="date">2023</p>
                             </div>
                             <p class="category">Animation/Comedy</p>
@@ -79,6 +84,7 @@
                                 </div>
                                 <div class="time">
                                     <i class="fa-regular fa-clock"></i>
+                                    <!--thời gian-->
                                     <p>120min</p>
                                 </div>
                             </div>
@@ -87,17 +93,25 @@
                             <!-- Ticket Booking -->
                             <div class="ticket-booking">
                                 <i class="fa-solid fa-ticket"></i>
-                                <span>Đặt vé</span>
+                                <a href="/Home/Detail?id=P01">Đặt vé</a>
+
+
                             </div>
 
                         </div>
                     </div>
-                    <img src="~/images/gajaman.jpg" alt="Gajaman">
+                    <!--hình-->
+                    <
+                         <img src="~/images/gajaman.jpg" alt="Gajaman">
+
                 </div>
                 <!-- More Cards with different movies -->
             </div>
+            </a>
         </div>
+        
     </div>
+    <!-- test-->
 
     <!-- Upcoming Movies Section -->
     <div class="upcoming">
@@ -170,6 +184,7 @@
 
                         </div>
                     </div>
+                   
                     <img src="~/images/money_heist.jpg" alt="Money Heist">
                 </div>
                 <!-- More Cards with different TV shows -->
@@ -193,3 +208,5 @@
     </script>
 </body>
 </html>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
