@@ -15,6 +15,7 @@ public partial class QlrapPhimContext : DbContext
     {
     }
 
+    public static object Phim { get; internal set; }
     public virtual DbSet<KhachHang> KhachHangs { get; set; }
 
     public virtual DbSet<LichChieu> LichChieus { get; set; }

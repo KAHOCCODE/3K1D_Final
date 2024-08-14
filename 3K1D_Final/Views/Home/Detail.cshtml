@@ -1,80 +1,96 @@
-﻿@model _3K1D_Final.Models.Phim
+﻿
 
 @{
     ViewData["Title"] = "Detail";
     Layout = null;
 
 }
+<style>
+.movie-card {
+    display: flex;
+    justify-content: center; /* Căn giữa thẻ .movie-card */
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    padding-top:5%;
+    padding-left:50px;
+    padding-right:50px; 
+}
 
-<h1>Detail</h1>
+.movie-card img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 30px; /* Tạo khoảng cách giữa ảnh và thông tin phim */
+     margin-left: 30px;
+}
 
+.movie-info {
+    flex: 2; /* Cho phép phần này chiếm phần còn lại của không gian */
+}
+
+.movie-info p {
+    margin: 5px 0;
+}
+
+</style>
+
+
+
+<link rel="stylesheet" href="~/css/site.css">
 <div>
-    <h4>Phim</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TenPhim)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TenPhim)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MoTa)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MoTa)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ThoiLuong)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ThoiLuong)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NgayKhoiChieu)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NgayKhoiChieu)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NgayKetThuc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NgayKetThuc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.QuocGiaSanXuat)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.QuocGiaSanXuat)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DaoDien)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DaoDien)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NamSx)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NamSx)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ApPhich)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ApPhich)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DinhDangPhim)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DinhDangPhim)
-        </dd>
-    </dl>
+<header>
+   <div class="nav-container">
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h1><img src="~/image/logo.png" alt="Logo" width="235" height="48" class="d-inline-block align-top"></h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-gift"></i> Promotions</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><i class="fas fa-film"></i> Movies</a>
+                    <div class="dropdown-content">
+                        <a href="#">Phim Đang Chiếu</a>
+                        <a href="#">Phim Sắp Chiếu</a>
+                    </div>
+                </li>
+                <li><a href="#"><i class="fas fa-utensils"></i> Foods & Drinks</a></li>
+                <li><a href="#"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Đăng nhập</a></li>
+            </ul>
+        </div>
+    </nav>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdPhim">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+</header>
+
+@model _3K1D_Final.Models.Phim
+@if (Model != null && Model.TenPhim != null)
+    {
+<div style="background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));">
+    <div class="movie-card" style="padding-left:20%; padding-right:15%;padding-top:5%">
+        <img src="@Model.ApPhich" alt="@Model.ApPhich" />
+        <div class="movie-info">
+            <h2>@Model.TenPhim</h2>
+            <p>@Model.ThoiLuong Phút | @Model.NamSx</p>
+            <p>Quốc gia: @Model.QuocGiaSanXuat</p>
+            <p>Thể loại: @Model.IdTheLoais</p>
+        </div>
+    </div>
+    </div>
+    <div class="movie-description" style="padding-left:20%; padding-right:20%;">
+        <p>Nội dung phim:</p>
+        <p>@Model.MoTa</p>
+    </div>
+
+
+    }
+    else
+    {
+        <p>No data available</p>
+    }
+

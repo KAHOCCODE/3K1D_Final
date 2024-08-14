@@ -1,5 +1,6 @@
-using _3K1D_Final.Models;
+﻿using _3K1D_Final.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace _3K1D_Final.Controllers
@@ -28,9 +29,32 @@ namespace _3K1D_Final.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
+        //truyền dữ liệu data phim từ model phim vào _Home.cshtml
+        public IActionResult Error(string message)
+        {
+            return View(new ErrorViewModel { });
+        }
+
+
+
         public IActionResult Detail()
         {
-            return View();
+            var id = Request.Query["id"].ToString();
+            // Lấy dữ liệu từ database dựa trên id
+            using (var db = new QlrapPhimContext())
+            {
+                var phim = db.Phims
+                    .Include(p => p.IdTheLoais)
+                    .FirstOrDefault(p => p.IdPhim == id);
+                
+                return View(phim);
+            }
         }
     }
+
+
+
+
+
 }
