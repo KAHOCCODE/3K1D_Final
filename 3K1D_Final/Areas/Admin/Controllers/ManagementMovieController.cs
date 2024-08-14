@@ -29,6 +29,21 @@ namespace _3K1D_Final.Areas.Admin.Controllers
             return View(movies);
         }
         
-
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Phim phim)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(phim);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(phim);
+        }
     }
 }
