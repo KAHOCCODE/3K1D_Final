@@ -1,10 +1,12 @@
 ﻿using _3K1D_Final.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace _3K1D_Final.Controllers
 {
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -41,17 +43,27 @@ namespace _3K1D_Final.Controllers
         public IActionResult Detail()
         {
             var id = Request.Query["id"].ToString();
-            // Lấy dữ liệu từ database dựa trên id
             using (var db = new QlrapPhimContext())
             {
                 var phim = db.Phims
                     .Include(p => p.IdTheLoais)
                     .FirstOrDefault(p => p.IdPhim == id);
-                
+
+
+
                 return View(phim);
             }
         }
     }
+
+    //lấy dữu liệu ApPhich từ database dựa vào id chuyển đổi thành file ảnh và truyền qua detail bằng cách đơn giản nhất
+
+
+
+
+
+
+
 
 
 

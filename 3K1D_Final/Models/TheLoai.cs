@@ -12,4 +12,5 @@ public partial class TheLoai
     public string? MoTa { get; set; }
 
     public virtual ICollection<Phim> IdPhims { get; set; } = new List<Phim>();
+    
 }

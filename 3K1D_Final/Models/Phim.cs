@@ -31,5 +31,19 @@ public partial class Phim
     public virtual ICollection<LichChieu> LichChieus { get; set; } = new List<LichChieu>();
 
     public virtual ICollection<TheLoai> IdTheLoais { get; set; } = new List<TheLoai>();
+    // lấy dữ liệu tenTheoLoai từ database Theloai dựa vào Icollection IdTheLoais
+    public string TenTheoLoai
+    {
+        get
+        {
+            string tenTheLoai = "";
+            foreach (var theLoai in IdTheLoais)
+            {
+                tenTheLoai += theLoai.TenTheLoai + ", ";
+            }
+
+            return tenTheLoai;
+        }
+    }
+
 }
-    
