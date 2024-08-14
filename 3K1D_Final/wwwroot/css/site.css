@@ -1,16 +1,17 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-/* Navigation Bar */
 
+/* Navigation Bar */
 nav {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
 }
+
 
 .container {
     display: flex;
@@ -22,6 +23,7 @@ nav {
 
 .logo h1 {
     margin-left: auto;
+    font-size: 18px; /* Adjust the font size for logo text if needed */
 }
 
 .search-bar {
@@ -33,14 +35,14 @@ nav {
 
     .search-bar input {
         width: 100%;
-        padding: 10px;
+        padding: 8px; /* Adjust padding if needed */
         border: none;
         border-radius: 20px 0 0 20px;
-        font-size: 16px;
+        font-size: 14px; /* Smaller font size */
     }
 
     .search-bar button {
-        padding: 10px 15px;
+        padding: 8px 12px; /* Adjust padding if needed */
         border: none;
         border-radius: 0 20px 20px 0;
         background-color: #9933FF;
@@ -48,20 +50,20 @@ nav {
     }
 
         .search-bar button i {
-            font-size: 16px;
+            font-size: 14px; /* Smaller icon size */
         }
-
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px; /* Adjust gap between items */
 }
 
     .nav-links li a {
         color: #fff;
         text-decoration: none;
-        padding: 10px;
+        padding: 8px; /* Adjust padding if needed */
+        font-size: 17px; /* Smaller font size */
         transition: background-color 0.3s;
     }
 
@@ -94,9 +96,10 @@ nav {
 
     .nav-links .dropdown-content a {
         color: #fff;
-        padding: 12px 16px;
+        padding: 10px 12px; /* Adjust padding if needed */
         text-decoration: none;
         display: block;
+        font-size: 14px; /* Smaller font size */
         transition: background-color 0.3s;
     }
 
@@ -107,6 +110,7 @@ nav {
 .nav-links .dropdown:hover .dropdown-content {
     display: block;
 }
+
 
 .carousel-background {
     background: linear-gradient(to bottom, #ff7e5f, #feb47b);
@@ -825,8 +829,7 @@ p.end {
             margin: 0 8px;
         }
 
-<!--
-Style login/signup -->/*----------*/
+<!--Style login/signup -->/*----------*/
 /* Google Fonts - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
@@ -837,13 +840,13 @@ Style login/signup -->/*----------*/
     font-family: 'Poppins', sans-serif;
 }
 
-.container {
+.container-forms {
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #2e2e2e, #4a4a4a);
+    background: linear-gradient(135deg, #1c1c1c, #383838);
     column-gap: 30px;
 }
 
@@ -858,10 +861,10 @@ Style login/signup -->/*----------*/
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-    .form.signup {
-        opacity: 0;
-        pointer-events: none;
-    }
+.form.signup {
+    opacity: 0;
+    pointer-events: none;
+}
 
 .forms.show-signup .form.signup {
     opacity: 1;
@@ -910,10 +913,10 @@ form {
     border: 1px solid #484848;
 }
 
-    .field input:focus {
-        border-color: #0171d3;
-        background: #3d3d3d;
-    }
+.field input:focus {
+    border-color: #0171d3;
+    background: #3d3d3d;
+}
 
 .eye-icon {
     position: absolute;
@@ -933,21 +936,21 @@ form {
     cursor: pointer;
 }
 
-    .field button:hover {
-        background-color: #016dcb;
-    }
+.field button:hover {
+    background-color: #016dcb;
+}
 
 .form-link {
     text-align: center;
     margin-top: 10px;
 }
 
-    .form-link span,
-    .form-link a {
-        font-size: 14px;
-        font-weight: 400;
-        color: #f5f5f5;
-    }
+.form-link span,
+.form-link a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #f5f5f5;
+}
 
 .form a {
     color: #0171d3;
@@ -966,16 +969,16 @@ form {
     background-color: #484848;
 }
 
-    .line::before {
-        content: 'Or';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(30, 30, 30, 0.9);
-        color: #b0b0b0;
-        padding: 0 15px;
-    }
+.line::before {
+    content: 'Or';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #b0b0b0;
+    padding: 0 15px;
+}
 
 .media-options a {
     display: flex;
@@ -988,17 +991,17 @@ a.facebook {
     background-color: #4267b2;
 }
 
-    a.facebook .facebook-icon {
-        height: 28px;
-        width: 28px;
-        color: #0171d3;
-        font-size: 20px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #fff;
-    }
+a.facebook .facebook-icon {
+    height: 28px;
+    width: 28px;
+    color: #0171d3;
+    font-size: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
 
 .facebook-icon,
 img.google-img {
@@ -1018,11 +1021,11 @@ a.google {
     border: 1px solid #484848;
 }
 
-    a.google span {
-        font-weight: 500;
-        opacity: 0.8;
-        color: #f5f5f5;
-    }
+a.google span {
+    font-weight: 500;
+    opacity: 0.8;
+    color: #f5f5f5;
+}
 
 @media screen and (max-width: 400px) {
     .form {
