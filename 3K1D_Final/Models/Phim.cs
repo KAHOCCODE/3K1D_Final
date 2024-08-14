@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 
 namespace _3K1D_Final.Models;
 
@@ -31,3 +32,4 @@ public partial class Phim
 
     public virtual ICollection<TheLoai> IdTheLoais { get; set; } = new List<TheLoai>();
 }
+    
