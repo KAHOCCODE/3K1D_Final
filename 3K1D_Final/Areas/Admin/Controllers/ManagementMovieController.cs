@@ -1,6 +1,5 @@
 ﻿using _3K1D_Final.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace _3K1D_Final.Areas.Admin.Controllers
 {
