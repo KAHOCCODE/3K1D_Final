@@ -1,0 +1,98 @@
+﻿@model _3K1D_Final.Models.Phim
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Create Movie</h1>
+
+<h4>Phim</h4>
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="TenPhim" class="form-label">Tên Phim</label>
+        <input asp-for="TenPhim" class="form-control" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="TenPhim"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MoTa" class="form-label">Mô Tả</label>
+        <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+        <div class="form-text text-danger">
+            <span asp-validation-for="MoTa"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ThoiLuong" class="form-label">Thời Lượng (Phút)</label>
+        <input asp-for="ThoiLuong" class="form-control" type="number" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="ThoiLuong"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NgayKhoiChieu" class="form-label">Ngày Khởi Chiếu</label>
+        <input asp-for="NgayKhoiChieu" class="form-control" type="date" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="NgayKhoiChieu"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NgayKetThuc" class="form-label">Ngày Kết Thúc</label>
+        <input asp-for="NgayKetThuc" class="form-control" type="date" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="NgayKetThuc"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="QuocGiaSanXuat" class="form-label">Quốc Gia Sản Xuất</label>
+        <input asp-for="QuocGiaSanXuat" class="form-control" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="QuocGiaSanXuat"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DaoDien" class="form-label">Đạo Diễn</label>
+        <input asp-for="DaoDien" class="form-control" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="DaoDien"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NamSx" class="form-label">Năm Sản Xuất</label>
+        <input asp-for="NamSx" class="form-control" type="number" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="NamSx"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DinhDangPhim" class="form-label">Định Dạng Phim</label>
+        <input asp-for="DinhDangPhim" class="form-control" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="DinhDangPhim"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ApPhich" class="form-label">Áp Phích</label>
+        <input asp-for="ApPhich" class="form-control" type="file" />
+        <div class="form-text text-danger">
+            <span asp-validation-for="ApPhich"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
