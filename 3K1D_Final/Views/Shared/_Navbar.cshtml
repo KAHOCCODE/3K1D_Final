@@ -1,32 +1,27 @@
 ﻿@* _Navbar.cshtml *@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <img src="\image\logo.png" alt="Logo" width="235" height="48" class="d-inline-block align-top">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Movies</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Foods & Drinks</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Promotions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">EN</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/Admin/HomeAdmin/"><i class="fas fa-user"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<div class="nav-container">
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h1><img src="\image\logo.png" alt="Logo" width="235" height="48" class="d-inline-block align-top"></h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-gift"></i> Promotions</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn"><i class="fas fa-film"></i> Movies</a>
+                    <div class="dropdown-content">
+                        <a href="#">Phim Đang Chiếu</a>
+                        <a href="#">Phim Sắp Chiếu</a>
+                    </div>
+                </li>
+                <li><a href="#"><i class="fas fa-utensils"></i> Foods & Drinks</a></li>
+                <li><a href="#"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Đăng nhập</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
