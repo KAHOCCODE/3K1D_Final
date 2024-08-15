@@ -1,71 +1,189 @@
-﻿
-
-@{
-    ViewData["Title"] = "Detail";
-    Layout = null;
-
+﻿@{
+    Layout=null;
 }
-<style>
-.movie-card {
-    display: flex;
-    justify-content: center; /* Căn giữa thẻ .movie-card */
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 20px;
-    padding-top:5%;
-    padding-left:50px;
-    padding-right:50px; 
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Phim</title>
+    <link rel="stylesheet" href="path/to/your/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/your/site.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 
-.movie-card img {
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
-    margin-right: 30px; /* Tạo khoảng cách giữa ảnh và thông tin phim */
-     margin-left: 30px;
-}
-
-.movie-info {
-    flex: 2; /* Cho phép phần này chiếm phần còn lại của không gian */
-}
-
-.movie-info p {
-    margin: 5px 0;
-}
-
-</style>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient nền cho trang */
+            font-family: 'Poppins', sans-serif;
+        }
 
 
+        .movie-detail-page {
+            padding: 30px;
+            background: linear-gradient(to right, #ffffff, #b3e5fc); /* Gradient trắng và xanh bạc */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 1200px;
+        }
 
-<link rel="stylesheet" href="~/css/site.css">
-<div>
-<header>
-        @Html.Partial("_Navbar")
-</header>
+        .movie-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
 
-@model _3K1D_Final.Models.Phim
-@if (Model != null && Model.TenPhim != null)
-    {
-<div style="background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.7));">
-    <div class="movie-card" style="padding-left:20%; padding-right:15%;padding-top:5%">
-        <img src="@Model.ApPhich" alt="@Model.ApPhich" />
-        <div class="movie-info">
-            <h2>@Model.TenPhim</h2>
-            <p>@Model.ThoiLuong Phút | @Model.NamSx</p>
-            <p>Quốc gia: @Model.QuocGiaSanXuat</p>
-            <p>Thể loại: @Model.IdTheLoais</p>
+        .movie-poster {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 300px; /* Điều chỉnh kích thước tối đa */
+            height: auto; /* Giữ tỷ lệ hình ảnh */
+            margin-right: 20px; /* Khoảng cách giữa poster và thông tin phim */
+        }
+
+        .movie-info {
+            flex: 1; /* Cho phép phần thông tin phim mở rộng để chiếm không gian còn lại */
+            margin-left: 20px; /* Khoảng cách giữa poster và thông tin phim */
+        }
+
+            .movie-info h1 {
+                margin-bottom: 10px;
+                font-size: 2.5rem;
+                color: #333;
+                background: linear-gradient(to right, #ff5722, #ff9800); /* Gradient cho tiêu đề */
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-weight: bold; /* Thêm thuộc tính in đậm */
+                padding: 5px 0;
+            }
+
+
+            .movie-info p {
+                font-size: 1.1rem;
+                color: #555;
+            }
+
+        .movie-description {
+            margin-bottom: 30px;
+        }
+
+            .movie-description h2 {
+                font-size: 2rem;
+                color: #fff;
+                background: linear-gradient(to right, #ff5722, #ff9800); /* Gradient cho tiêu đề mô tả */
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                border-bottom: 2px solid transparent;
+                padding-bottom: 10px;
+                margin-bottom: 15px;
+                font-weight: bold; /* Thêm thuộc tính in đậm */
+            }
+
+            .movie-description p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                color: #666;
+            }
+
+        .booking-section {
+            margin-top: 50px; /* Điều chỉnh khoảng cách với nội dung phía trên */
+        }
+
+            .booking-section h2 {
+                font-size: 1.8rem;
+                color: #fff;
+                background: linear-gradient(to right, #ff5722, #ff9800); /* Gradient cho tiêu đề đặt vé */
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 15px;
+                font-weight: bold; /* Thêm thuộc tính in đậm */
+            }
+
+            .booking-section p {
+                font-size: 1.1rem;
+                color: #555;
+            }
+
+        .btn-book {
+            background: linear-gradient(to right, #ff5722, #ff9800); /* Gradient cho nút đặt vé */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .btn-book:hover {
+                background: linear-gradient(to right, #ab47bc, #8e24aa); /* Gradient khi hover */
+            }
+
+        .date-buttons, .time-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-date, .btn-time {
+            background: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .btn-date:hover, .btn-time:hover {
+                background: #e64a19;
+            }
+
+        .btn-selected {
+            background: #feb47b;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container movie-detail-page">
+        <div class="movie-header">
+            <!-- Phần Poster Phim -->
+            <img src="~/images/gajaman.jpg" alt="Poster Phim" class="movie-poster">
+            <!-- Phần Thông Tin Phim -->
+            <div class="movie-info">
+                <h1>Tên Phim</h1>
+                <p><i class="fas fa-film"></i> <strong>Thể loại:</strong> Thể loại phim</p>
+                <p><i class="fas fa-user-tie"></i> <strong>Đạo diễn:</strong> Tên đạo diễn</p>
+                <p><i class="fas fa-flag"></i> <strong>Quốc gia:</strong> Tên Quốc gia</p>
+                <p><i class="fas fa-clock"></i> <strong>Thời lượng:</strong> Thời lượng phim</p>
+                <p><i class="fas fa-calendar-day"></i> <strong>Khởi chiếu:</strong> Thời gian chiếu</p>
+
+            </div>
         </div>
-    </div>
-    </div>
-    <div class="movie-description" style="padding-left:20%; padding-right:20%;">
-        <p>Nội dung phim:</p>
-        <p>@Model.MoTa</p>
-    </div>
-
-
-    }
-    else
-    {
-        <p>No data available</p>
-    }
+        <!-- Phần Mô Tả Phim -->
+        <div class="movie-description">
+            <h2>Mô Tả</h2>
+            <p>Mô tả nội dung phim ở đây. Thông tin chi tiết về cốt truyện và các yếu tố chính của phim.</p>
+        </div>
+        <!-- Phần Đặt Vé -->
+        <div class="booking-section">
+            <h2>Đặt Vé</h2>
+            <p><strong>Ngày chiếu:</strong></p>
+            <div class="date-buttons">
+                <button class="btn-date">Ngày 1</button>
+                <button class="btn-date">Ngày 2</button>
+                <button class="btn-date">Ngày 3</button>
+            </div>
+            <p><strong>Giờ chiếu:</strong></p>
+            <div class="time-buttons">
+                <button class="btn-time">10:00</button>
+                <button class="btn-time">13:00</button>
+                <button class="btn-time">16:00</button>
+                <button class="btn-time">19:00</button>
+            </div>
+            <a href="booking-page.html" class="btn-book">Đặt Vé Ngay <i class="fas fa-ticket-alt"></i></a>
+    <script src="path/to/your/bootstrap.bundle.min.js"></script>
+</body>
 
