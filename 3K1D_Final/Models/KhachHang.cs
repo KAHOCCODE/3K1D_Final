@@ -41,6 +41,9 @@ public partial class KhachHang : IValidatableObject
     [RegularExpression(@"^\d{12}$", ErrorMessage = "CCCD chỉ được chứa 12 chữ số")]
     public string Cccd { get; set; } = null!;
 
+
+    public string? Email { get; set; }
+
     [DisplayName("Điểm tích lũy")]
     public int? DiemTichLuy { get; set; }
 
